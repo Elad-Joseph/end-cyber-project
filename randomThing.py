@@ -1,2 +1,7 @@
-import random
-print(random.randint(1,3))
+a = 1
+def b():
+    global a
+    a += 1
+    print(a)
+    return a
+print(b())
