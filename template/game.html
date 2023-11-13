@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="game_style.css">
         <title>quiz</title>
+        
     </head>
     <body>
         <form method="post">
+        <div>
+            <img src="{{url_for('static', filename='/dragon_ball_z.jpg')}}" style="position: absolute;width: 2535px;height: 980px;">
+        </div>
         <CENTER>
-            <input type="text" id="question" name="question" value="{{question}}" readonly style="position: absolute;top: 10%;right: 30%;border: 0px;width:550px;" >
+            <input type="text" id="question" name="question" value="{{question}}" readonly style="position: absolute;top: 10%;right: 30%;border: 0px;width:600px;background: 0px;color:white;font-size: 20px;" >
         </CENTER>
         <div>
-            <input type="submit" id="answer1" name="answer1" value="{{answer1}}" formaction="/answer1" style="position: absolute;top : 40%;right : 55%;height: 140px;width: 140px;">
+            <input type="submit" id="answer1" name="answer1" value="{{answer1}}" formaction="/answer1" style="position: absolute;top : 40%;right : 55%;height: 140px;width: 140px;border-radius: 10px;background:0px;color :white;border-color: white;">
         </div>
         <div>
-            <input type="submit" id="answer2" name="answer2" value="{{answer2}}" formaction="/answer2" style="position: absolute;top: 40%;right: 35%;height: 140px;width: 140px;">
+            <input type="submit" id="answer2" name="answer2" value="{{answer2}}" formaction="/answer2" style="position: absolute;top: 40%;right: 35%;height: 140px;width: 140px;border-radius: 10px;background:0px;color :white;border-color: white;">
         </div>
         <div>
-            <input type="submit" id="answer3" name="answer3" value="{{answer3}}" formaction="/answer3" style="position:absolute;top : 60%;right : 55%;height: 140px;width: 140px;">
+            <input type="submit" id="answer3" name="answer3" value="{{answer3}}" formaction="/answer3" style="position:absolute;top : 60%;right : 55%;height: 140px;width: 140px;border-radius: 10px;background:0px;color :white;border-color: white;">
         </div>
         <div>
-            <input type="submit" id="answer4" name="answer4" value="{{answer4}}" formaction="/answer4" style="position:absolute;top : 60%;right : 35%;height: 140px;width: 140px;">
+            <input type="submit" id="answer4" name="answer4" value="{{answer4}}" formaction="/answer4" style="position:absolute;top : 60%;right : 35%;height: 140px;width: 140px;border-radius: 10px;background:0px;color :white;border-color: white;">
         </div>
+        
         </form>
+        
     </body>
 </html>
