@@ -23,28 +23,14 @@ def log_on():
 def setUpPage():
     global quistionNumber
     quistionNumber += 1
-    print(quistionNumber)
     quistion = quistions[quistionNumber].split(",")
-    print(quistion)
     return render_template("game.html",
                             question = quistion[0],
                             answer1 = quistion[1],
                             answer2 = quistion[2],
                             answer3 = quistion[3],
                             answer4 = quistion[4])
-# @app.route("/restart",methods=["GET","POST"])
-# def restart():
-#     global quistionNumber
-#     quistionNumber += 1
-#     print(quistionNumber)
-#     quistion = quistions[quistionNumber].split(",")
-#     print(quistion)
-#     return render_template("game.html",
-#                             question = quistion[0],
-#                             answer1 = quistion[1],
-#                             answer2 = quistion[2],
-#                             answer3 = quistion[3],
-#                             answer4 = quistion[4])
+
 def failed():
     global numOfFails , quistionNumber
     numOfFails += 1
@@ -57,7 +43,11 @@ def failed():
         return render_template("win.html")
     return setUpPage()
 
-@app.route("/quiz",methods=["GET","POST"])
+@app.route("/quiz", methods=["POST","GET"])
+def startquiz():
+    return setUpPage()
+
+@app.route("/startquiz",methods=["GET","POST"])
 def quiz():
     global faildToEnterTimer, timesTriedToEnter
     if request.method == "POST":
@@ -67,7 +57,7 @@ def quiz():
                 password = request.form["password"]
                 if users[email] == password:
                 
-                    return setUpPage()
+                    return render_template("startQuiz.html")
                 else:
                     timesTriedToEnter = timesTriedToEnter + 1
                     print(timesTriedToEnter)
@@ -119,7 +109,7 @@ def sendPassword():
         contents = ""
         for i in range(6):
             contents  = contents + str(rd.randint(0,9))
-        print(contents)
+        print(f"email: {contents}")
         return render_template("enterPinNumber.html")
     return render_template("recoverEmail.html")
 
@@ -128,7 +118,7 @@ def recover():
     global contents
     if request.form["enterPin"].replace(" ","") != "":
         if request.form["enterPin"].replace(" ","") == contents:
-            return setUpPage()
+            return render_template("startquiz.html")
     return render_template("enterPinNumber.html")
 @app.route("/back",methods=["POST","GET"])
 def back():
@@ -145,7 +135,7 @@ def restart():
     timesTriedToEnter = 0
     faildToEnterTimer = 30
     quistionNumber = -1
-    return render_template("sigh_in.html")
+    return render_template("startquiz.html")
 
 @app.route("/signin",methods=["POST","GET"])
 def signin():

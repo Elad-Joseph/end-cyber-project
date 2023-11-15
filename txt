@@ -1,0 +1,1 @@
+{{url_for('static', filename='/start_quiz_dragon_ball.jpg')}}
