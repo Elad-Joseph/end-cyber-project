@@ -2,8 +2,10 @@
 <html lan="en">
     <head>
         <title>enter pin number you got in your email</title>
+        <form method="post">
     </head>
     <body>
+        <form method="post">
         <CENTER>
             <h1>enter pin number</h1>
             <form method="post">
@@ -11,7 +13,10 @@
                 <input type="tep" id="enterPin" name="enterPin" placeholder="6 numbers" autocomplete="off">
             </div>
             <div>
-                <input type="submit" id=""
+                <input type="submit" id="send" name="send" value="send" formaction="/recovered">
+            </div>
+            <div>
+                <input type="submit" id="back" name="back" value="back" formaction="/back">
             </div>
         </CENTER>
     </body>
