@@ -61,7 +61,7 @@ def quiz():
                 else:
                     timesTriedToEnter = timesTriedToEnter + 1
                     print(timesTriedToEnter)
-                    timesTriedToEnter = 0
+
                     faildToEnterTimer = 30
                     return render_template("sigh_in.html")
             else:
